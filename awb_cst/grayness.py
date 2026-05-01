@@ -79,6 +79,6 @@ def correct(image: np.ndarray) -> np.ndarray:
     if image.ndim != 3 or image.shape[2] != 3:
         raise ValueError("Image must have shape [H, W, 3].")
 
-    illum = _estimate_illuminant_grayness_index(x)
+    illum = _estimate_illuminant_grayness_index(image)
     illum /= illum[1] 
     return illum.astype(np.float32, copy=False)
